@@ -1,0 +1,17 @@
+/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/PersistedEvent.java
+/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/FlowStateStoreProvider.java
+/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/FlowStateSerializer.java
+/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/AppendResult.java
+/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/DecisionResult.java
+/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/exception/BackendUnavailableException.java
+/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/PersistenceBackend.java
+/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/exception/OptimisticConflictException.java
+/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/exception/DuplicateEventException.java
+/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/PersistenceConfiguration.java
+/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/StateEnvelope.java
+/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/FlowStateStore.java
+/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/FlowStateMachine.java
+/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/FlowStateStoreFactory.java
+/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/RehydrationPolicy.java
+/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/RehydratedState.java
+/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/exception/PersistenceException.java

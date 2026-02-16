@@ -1,0 +1,17 @@
+io/dscope/camel/persistence/core/FlowStateStoreProvider.class
+io/dscope/camel/persistence/core/DecisionResult.class
+io/dscope/camel/persistence/core/FlowStateSerializer.class
+io/dscope/camel/persistence/core/PersistenceBackend.class
+io/dscope/camel/persistence/core/StateEnvelope.class
+io/dscope/camel/persistence/core/PersistenceConfiguration.class
+io/dscope/camel/persistence/core/exception/OptimisticConflictException.class
+io/dscope/camel/persistence/core/FlowStateStore.class
+io/dscope/camel/persistence/core/RehydrationPolicy.class
+io/dscope/camel/persistence/core/PersistedEvent.class
+io/dscope/camel/persistence/core/exception/DuplicateEventException.class
+io/dscope/camel/persistence/core/AppendResult.class
+io/dscope/camel/persistence/core/FlowStateMachine.class
+io/dscope/camel/persistence/core/exception/BackendUnavailableException.class
+io/dscope/camel/persistence/core/FlowStateStoreFactory.class
+io/dscope/camel/persistence/core/exception/PersistenceException.class
+io/dscope/camel/persistence/core/RehydratedState.class

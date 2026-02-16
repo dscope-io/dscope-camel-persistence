@@ -1,0 +1,26 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>io.dscope.camel</groupId>
+  <artifactId>camel-persistence</artifactId>
+  <version>0.1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <properties>
+    <maven.compiler.release>21</maven.compiler.release>
+    <jackson.version>2.20.0</jackson.version>
+    <junit.version>5.10.2</junit.version>
+    <jedis.version>5.2.0</jedis.version>
+  </properties>
+
+  <modules>
+    <module>camel-persistence-core</module>
+    <module>camel-persistence-redis</module>
+    <module>camel-persistence-jdbc</module>
+    <module>camel-persistence-ic4j</module>
+    <module>camel-persistence-a2a-adapter</module>
+    <module>camel-persistence-agui-adapter</module>
+  </modules>
+</project>
