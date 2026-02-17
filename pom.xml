@@ -21,7 +21,5 @@
     <module>camel-persistence-redis</module>
     <module>camel-persistence-jdbc</module>
     <module>camel-persistence-ic4j</module>
-    <module>camel-persistence-a2a-adapter</module>
-    <module>camel-persistence-agui-adapter</module>
   </modules>
 </project>
