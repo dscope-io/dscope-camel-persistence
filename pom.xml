@@ -17,6 +17,7 @@
 
   <modules>
     <module>camel-persistence-core</module>
+    <module>camel-persistence-testkit</module>
     <module>camel-persistence-redis</module>
     <module>camel-persistence-jdbc</module>
     <module>camel-persistence-ic4j</module>
