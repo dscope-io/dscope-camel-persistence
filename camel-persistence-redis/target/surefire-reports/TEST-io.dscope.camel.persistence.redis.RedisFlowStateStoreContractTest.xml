@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="io.dscope.camel.persistence.redis.RedisFlowStateStoreContractTest" time="0.533" tests="4" errors="0" skipped="4" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="io.dscope.camel.persistence.redis.RedisFlowStateStoreContractTest" time="0.39" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-redis/target/test-classes:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-redis/target/classes:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/target/classes:/Users/roman/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.20.0/jackson-databind-2.20.0.jar:/Users/roman/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.20/jackson-annotations-2.20.jar:/Users/roman/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.20.0/jackson-core-2.20.0.jar:/Users/roman/.m2/repository/redis/clients/jedis/5.2.0/jedis-5.2.0.jar:/Users/roman/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/Users/roman/.m2/repository/org/apache/commons/commons-pool2/2.12.0/commons-pool2-2.12.0.jar:/Users/roman/.m2/repository/org/json/json/20240303/json-20240303.jar:/Users/roman/.m2/repository/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar:/Users/roman/.m2/repository/com/google/errorprone/error_prone_annotations/2.27.0/error_prone_annotations-2.27.0.jar:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-testkit/target/classes:/Users/roman/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.2/junit-jupiter-api-5.10.2.jar:/Users/roman/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/roman/.m2/repository/org/junit/platform/junit-platform-commons/1.10.2/junit-platform-commons-1.10.2.jar:/Users/roman/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/roman/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.2/junit-jupiter-5.10.2.jar:/Users/roman/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.2/junit-jupiter-params-5.10.2.jar:/Users/roman/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.2/junit-jupiter-engine-5.10.2.jar:/Users/roman/.m2/repository/org/junit/platform/junit-platform-engine/1.10.2/junit-platform-engine-1.10.2.jar:/Users/roman/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:"/>
+    <property name="java.class.path" value="/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-redis/target/test-classes:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-redis/target/classes:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/target/camel-persistence-core-1.0.0.jar:/Users/roman/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.20.0/jackson-databind-2.20.0.jar:/Users/roman/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.20/jackson-annotations-2.20.jar:/Users/roman/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.20.0/jackson-core-2.20.0.jar:/Users/roman/.m2/repository/redis/clients/jedis/5.2.0/jedis-5.2.0.jar:/Users/roman/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/Users/roman/.m2/repository/org/apache/commons/commons-pool2/2.12.0/commons-pool2-2.12.0.jar:/Users/roman/.m2/repository/org/json/json/20240303/json-20240303.jar:/Users/roman/.m2/repository/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar:/Users/roman/.m2/repository/com/google/errorprone/error_prone_annotations/2.27.0/error_prone_annotations-2.27.0.jar:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-testkit/target/camel-persistence-testkit-1.0.0.jar:/Users/roman/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.2/junit-jupiter-api-5.10.2.jar:/Users/roman/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/roman/.m2/repository/org/junit/platform/junit-platform-commons/1.10.2/junit-platform-commons-1.10.2.jar:/Users/roman/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/roman/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.2/junit-jupiter-5.10.2.jar:/Users/roman/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.2/junit-jupiter-params-5.10.2.jar:/Users/roman/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.2/junit-jupiter-engine-5.10.2.jar:/Users/roman/.m2/repository/org/junit/platform/junit-platform-engine/1.10.2/junit-platform-engine-1.10.2.jar:/Users/roman/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
@@ -13,10 +13,10 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/Users/roman/.sdkman/candidates/java/21.0.2-open/lib"/>
-    <property name="sun.java.command" value="/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-redis/target/surefire/surefirebooter-20260216175341291_6.jar /Users/roman/Projects/DScope/CamelPersistence/camel-persistence-redis/target/surefire 2026-02-16T17-53-37_117-jvmRun1 surefire-20260216175341291_4tmp surefire_1-20260216175341291_5tmp"/>
+    <property name="sun.java.command" value="/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-redis/target/surefire/surefirebooter-20260218155521710_6.jar /Users/roman/Projects/DScope/CamelPersistence/camel-persistence-redis/target/surefire 2026-02-18T15-55-20_712-jvmRun1 surefire-20260218155521710_4tmp surefire_1-20260218155521710_5tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-redis/target/test-classes:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-redis/target/classes:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/target/classes:/Users/roman/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.20.0/jackson-databind-2.20.0.jar:/Users/roman/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.20/jackson-annotations-2.20.jar:/Users/roman/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.20.0/jackson-core-2.20.0.jar:/Users/roman/.m2/repository/redis/clients/jedis/5.2.0/jedis-5.2.0.jar:/Users/roman/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/Users/roman/.m2/repository/org/apache/commons/commons-pool2/2.12.0/commons-pool2-2.12.0.jar:/Users/roman/.m2/repository/org/json/json/20240303/json-20240303.jar:/Users/roman/.m2/repository/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar:/Users/roman/.m2/repository/com/google/errorprone/error_prone_annotations/2.27.0/error_prone_annotations-2.27.0.jar:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-testkit/target/classes:/Users/roman/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.2/junit-jupiter-api-5.10.2.jar:/Users/roman/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/roman/.m2/repository/org/junit/platform/junit-platform-commons/1.10.2/junit-platform-commons-1.10.2.jar:/Users/roman/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/roman/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.2/junit-jupiter-5.10.2.jar:/Users/roman/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.2/junit-jupiter-params-5.10.2.jar:/Users/roman/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.2/junit-jupiter-engine-5.10.2.jar:/Users/roman/.m2/repository/org/junit/platform/junit-platform-engine/1.10.2/junit-platform-engine-1.10.2.jar:/Users/roman/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:"/>
+    <property name="surefire.test.class.path" value="/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-redis/target/test-classes:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-redis/target/classes:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/target/camel-persistence-core-1.0.0.jar:/Users/roman/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.20.0/jackson-databind-2.20.0.jar:/Users/roman/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.20/jackson-annotations-2.20.jar:/Users/roman/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.20.0/jackson-core-2.20.0.jar:/Users/roman/.m2/repository/redis/clients/jedis/5.2.0/jedis-5.2.0.jar:/Users/roman/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/Users/roman/.m2/repository/org/apache/commons/commons-pool2/2.12.0/commons-pool2-2.12.0.jar:/Users/roman/.m2/repository/org/json/json/20240303/json-20240303.jar:/Users/roman/.m2/repository/com/google/code/gson/gson/2.11.0/gson-2.11.0.jar:/Users/roman/.m2/repository/com/google/errorprone/error_prone_annotations/2.27.0/error_prone_annotations-2.27.0.jar:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-testkit/target/camel-persistence-testkit-1.0.0.jar:/Users/roman/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.2/junit-jupiter-api-5.10.2.jar:/Users/roman/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/roman/.m2/repository/org/junit/platform/junit-platform-commons/1.10.2/junit-platform-commons-1.10.2.jar:/Users/roman/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/roman/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.2/junit-jupiter-5.10.2.jar:/Users/roman/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.2/junit-jupiter-params-5.10.2.jar:/Users/roman/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.2/junit-jupiter-engine-5.10.2.jar:/Users/roman/.m2/repository/org/junit/platform/junit-platform-engine/1.10.2/junit-platform-engine-1.10.2.jar:/Users/roman/.m2/repository/org/slf4j/slf4j-simple/1.7.36/slf4j-simple-1.7.36.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/Users/roman"/>
     <property name="user.language" value="en"/>
@@ -30,7 +30,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-redis/target/surefire/surefirebooter-20260216175341291_6.jar"/>
+    <property name="surefire.real.class.path" value="/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-redis/target/surefire/surefirebooter-20260218155521710_6.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="21.0.2+13-58"/>
@@ -58,48 +58,8 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="idempotencyKeyPreventsDuplicateAppend" classname="io.dscope.camel.persistence.redis.RedisFlowStateStoreContractTest" time="0.0">
-    <skipped type="org.opentest4j.TestAbortedException"><![CDATA[org.opentest4j.TestAbortedException: Assumption failed: Redis is not reachable at redis://localhost:6379. Set -Dcamel.persistence.test.redis.uri to run Redis contract tests.
-	at org.junit.jupiter.api.Assumptions.throwAssumptionFailed(Assumptions.java:316)
-	at org.junit.jupiter.api.Assumptions.assumeTrue(Assumptions.java:115)
-	at io.dscope.camel.persistence.redis.RedisFlowStateStoreContractTest.createStore(RedisFlowStateStoreContractTest.java:15)
-	at io.dscope.camel.persistence.testkit.FlowStateStoreContractSuite.idempotencyKeyPreventsDuplicateAppend(FlowStateStoreContractSuite.java:53)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-]]></skipped>
-  </testcase>
-  <testcase name="rehydrateUsesSnapshotAndTailEvents" classname="io.dscope.camel.persistence.redis.RedisFlowStateStoreContractTest" time="0.0">
-    <skipped type="org.opentest4j.TestAbortedException"><![CDATA[org.opentest4j.TestAbortedException: Assumption failed: Redis is not reachable at redis://localhost:6379. Set -Dcamel.persistence.test.redis.uri to run Redis contract tests.
-	at org.junit.jupiter.api.Assumptions.throwAssumptionFailed(Assumptions.java:316)
-	at org.junit.jupiter.api.Assumptions.assumeTrue(Assumptions.java:115)
-	at io.dscope.camel.persistence.redis.RedisFlowStateStoreContractTest.createStore(RedisFlowStateStoreContractTest.java:15)
-	at io.dscope.camel.persistence.testkit.FlowStateStoreContractSuite.rehydrateUsesSnapshotAndTailEvents(FlowStateStoreContractSuite.java:85)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-]]></skipped>
-  </testcase>
-  <testcase name="optimisticConflictIsDetected" classname="io.dscope.camel.persistence.redis.RedisFlowStateStoreContractTest" time="0.0">
-    <skipped type="org.opentest4j.TestAbortedException"><![CDATA[org.opentest4j.TestAbortedException: Assumption failed: Redis is not reachable at redis://localhost:6379. Set -Dcamel.persistence.test.redis.uri to run Redis contract tests.
-	at org.junit.jupiter.api.Assumptions.throwAssumptionFailed(Assumptions.java:316)
-	at org.junit.jupiter.api.Assumptions.assumeTrue(Assumptions.java:115)
-	at io.dscope.camel.persistence.redis.RedisFlowStateStoreContractTest.createStore(RedisFlowStateStoreContractTest.java:15)
-	at io.dscope.camel.persistence.testkit.FlowStateStoreContractSuite.optimisticConflictIsDetected(FlowStateStoreContractSuite.java:70)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-]]></skipped>
-  </testcase>
-  <testcase name="appendReadAndSequenceAreMonotonic" classname="io.dscope.camel.persistence.redis.RedisFlowStateStoreContractTest" time="0.0">
-    <skipped type="org.opentest4j.TestAbortedException"><![CDATA[org.opentest4j.TestAbortedException: Assumption failed: Redis is not reachable at redis://localhost:6379. Set -Dcamel.persistence.test.redis.uri to run Redis contract tests.
-	at org.junit.jupiter.api.Assumptions.throwAssumptionFailed(Assumptions.java:316)
-	at org.junit.jupiter.api.Assumptions.assumeTrue(Assumptions.java:115)
-	at io.dscope.camel.persistence.redis.RedisFlowStateStoreContractTest.createStore(RedisFlowStateStoreContractTest.java:15)
-	at io.dscope.camel.persistence.testkit.FlowStateStoreContractSuite.appendReadAndSequenceAreMonotonic(FlowStateStoreContractSuite.java:35)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-]]></skipped>
-  </testcase>
+  <testcase name="idempotencyKeyPreventsDuplicateAppend" classname="io.dscope.camel.persistence.redis.RedisFlowStateStoreContractTest" time="0.261"/>
+  <testcase name="rehydrateUsesSnapshotAndTailEvents" classname="io.dscope.camel.persistence.redis.RedisFlowStateStoreContractTest" time="0.016"/>
+  <testcase name="optimisticConflictIsDetected" classname="io.dscope.camel.persistence.redis.RedisFlowStateStoreContractTest" time="0.01"/>
+  <testcase name="appendReadAndSequenceAreMonotonic" classname="io.dscope.camel.persistence.redis.RedisFlowStateStoreContractTest" time="0.011"/>
 </testsuite>

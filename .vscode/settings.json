@@ -1,3 +1,29 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "chat.tools.terminal.autoApprove": {
+        "/^git tag -l \"v1\\.0\\.0\" && git rev-parse --short HEAD && git status --short$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^git tag -a v1\\.0\\.0 -m \"Release v1\\.0\\.0\" && git show --no-patch --oneline v1\\.0\\.0$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^command -v gh && gh --version \\| head -n 1$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^gh repo edit dscope-io/dscope-camel-persistence --description \"Modular flow-state persistence for Apache Camel with pluggable JDBC and Redis backends\\.\" --add-topic apache-camel --add-topic camel --add-topic persistence --add-topic event-sourcing --add-topic jdbc --add-topic redis --add-topic java --add-topic state-management$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^gh repo view dscope-io/dscope-camel-persistence --json description,repositoryTopics --jq '\\{description: \\.description, topics: \\[\\.repositoryTopics\\[\\]\\.name\\]\\}'$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^for f in \\$\\(find \\. -name \"\\*\\.java\" \\| sort\\); do head -n 1 \"\\$f\"; done \\| sort \\| uniq -c$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
 }

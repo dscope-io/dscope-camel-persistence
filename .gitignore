@@ -1,0 +1,3 @@
+target/
+.LCK*
+camel-persistence-jdbc/derby.log

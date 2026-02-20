@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: io.dscope.camel.persistence.jdbc.JdbcFlowStateStoreDerbyTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.879 s -- in io.dscope.camel.persistence.jdbc.JdbcFlowStateStoreDerbyTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.017 s -- in io.dscope.camel.persistence.jdbc.JdbcFlowStateStoreDerbyTest
