@@ -10,6 +10,7 @@
   </parent>
 
   <artifactId>camel-persistence-ic4j</artifactId>
+  <name>Camel Persistence IC4J</name>
 
   <dependencies>
     <dependency>

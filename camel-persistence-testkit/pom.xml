@@ -10,6 +10,7 @@
   </parent>
 
   <artifactId>camel-persistence-testkit</artifactId>
+  <name>Camel Persistence Testkit</name>
 
   <dependencies>
     <dependency>

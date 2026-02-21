@@ -41,9 +41,11 @@ mvn clean install
 
 This installs artifacts under `~/.m2/repository/io/dscope/camel/...`.
 
-## Dependency Examples
+## Dependency Examples (for other projects)
 
-Use `core` plus one backend module.
+Use `core` plus one backend module (`jdbc` or `redis`).
+
+### Maven
 
 ```xml
 <dependency>
@@ -60,6 +62,42 @@ Use `core` plus one backend module.
 ```
 
 For Redis backend, replace `camel-persistence-jdbc` with `camel-persistence-redis`.
+
+### Gradle (Groovy DSL)
+
+```groovy
+dependencies {
+  implementation 'io.dscope.camel:camel-persistence-core:1.0.0'
+  implementation 'io.dscope.camel:camel-persistence-jdbc:1.0.0'
+}
+```
+
+For Redis backend:
+
+```groovy
+dependencies {
+  implementation 'io.dscope.camel:camel-persistence-core:1.0.0'
+  implementation 'io.dscope.camel:camel-persistence-redis:1.0.0'
+}
+```
+
+### Gradle (Kotlin DSL)
+
+```kotlin
+dependencies {
+  implementation("io.dscope.camel:camel-persistence-core:1.0.0")
+  implementation("io.dscope.camel:camel-persistence-jdbc:1.0.0")
+}
+```
+
+For Redis backend:
+
+```kotlin
+dependencies {
+  implementation("io.dscope.camel:camel-persistence-core:1.0.0")
+  implementation("io.dscope.camel:camel-persistence-redis:1.0.0")
+}
+```
 
 ## Configuration Properties
 

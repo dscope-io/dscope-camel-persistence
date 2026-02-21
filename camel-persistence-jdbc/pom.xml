@@ -10,6 +10,7 @@
   </parent>
 
   <artifactId>camel-persistence-jdbc</artifactId>
+  <name>Camel Persistence JDBC</name>
 
   <dependencies>
     <dependency>

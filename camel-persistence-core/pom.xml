@@ -10,6 +10,7 @@
   </parent>
 
   <artifactId>camel-persistence-core</artifactId>
+  <name>Camel Persistence Core</name>
 
   <dependencies>
     <dependency>

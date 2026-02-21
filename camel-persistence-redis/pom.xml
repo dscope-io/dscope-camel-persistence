@@ -10,6 +10,7 @@
   </parent>
 
   <artifactId>camel-persistence-redis</artifactId>
+  <name>Camel Persistence Redis</name>
 
   <dependencies>
     <dependency>

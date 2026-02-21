@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: io.dscope.camel.persistence.redis.RedisFlowStateStoreContractTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.390 s -- in io.dscope.camel.persistence.redis.RedisFlowStateStoreContractTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.324 s -- in io.dscope.camel.persistence.redis.RedisFlowStateStoreContractTest
