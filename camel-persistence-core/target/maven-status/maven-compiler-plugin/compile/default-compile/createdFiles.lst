@@ -7,6 +7,7 @@ io/dscope/camel/persistence/core/PersistenceConfiguration.class
 io/dscope/camel/persistence/core/exception/OptimisticConflictException.class
 io/dscope/camel/persistence/core/FlowStateStore.class
 io/dscope/camel/persistence/core/RehydrationPolicy.class
+io/dscope/camel/persistence/core/RedisJdbcFlowStateStore.class
 io/dscope/camel/persistence/core/PersistedEvent.class
 io/dscope/camel/persistence/core/exception/DuplicateEventException.class
 io/dscope/camel/persistence/core/AppendResult.class

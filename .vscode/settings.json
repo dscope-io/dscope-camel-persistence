@@ -25,5 +25,6 @@
             "approve": true,
             "matchCommandLine": true
         }
-    }
+    },
+    "java.debug.settings.onBuildFailureProceed": true
 }

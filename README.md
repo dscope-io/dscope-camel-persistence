@@ -2,11 +2,16 @@
 
 `camel-persistence` is a modular persistence layer for Camel-style flow state, with pluggable backends.
 
-[![version](https://img.shields.io/badge/version-1.0.0-brightgreen)](https://github.com/dscope-io/dscope-camel-persistence/releases/tag/v1.0.0)
+[![version](https://img.shields.io/badge/version-1.1.0-brightgreen)](https://github.com/dscope-io/dscope-camel-persistence/releases/tag/v1.1.0)
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
 [![java](https://img.shields.io/badge/java-21-orange)](https://openjdk.org/)
 
 **Description:** Modular flow-state persistence for Apache Camel with pluggable JDBC and Redis backends.
+
+## Documentation
+
+- [Third-Party Component Integration Guide](docs/THIRD_PARTY_COMPONENT_INTEGRATION.md)
+- [Maven Central Deployment Guide](docs/MAVEN_CENTRAL_DEPLOYMENT.md)
 
 ## Topics
 
@@ -29,7 +34,11 @@
 
 ## Version
 
-Current stable release: `1.0.0`
+Current stable release: `1.1.0`
+
+Canonical root artifact (parent POM): `io.dscope.camel:camel-persistence:1.1.0`
+
+Canonical Maven package URL (PURL): `pkg:maven/io.dscope.camel/camel-persistence`
 
 ## Build & Install (local Maven)
 
@@ -51,24 +60,38 @@ Use `core` plus one backend module (`jdbc` or `redis`).
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-core</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
 </dependency>
 
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-jdbc</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
 </dependency>
 ```
 
-For Redis backend, replace `camel-persistence-jdbc` with `camel-persistence-redis`.
+### Maven (Redis backend)
+
+```xml
+<dependency>
+  <groupId>io.dscope.camel</groupId>
+  <artifactId>camel-persistence-core</artifactId>
+  <version>1.1.0</version>
+</dependency>
+
+<dependency>
+  <groupId>io.dscope.camel</groupId>
+  <artifactId>camel-persistence-redis</artifactId>
+  <version>1.1.0</version>
+</dependency>
+```
 
 ### Gradle (Groovy DSL)
 
 ```groovy
 dependencies {
-  implementation 'io.dscope.camel:camel-persistence-core:1.0.0'
-  implementation 'io.dscope.camel:camel-persistence-jdbc:1.0.0'
+  implementation 'io.dscope.camel:camel-persistence-core:1.1.0'
+  implementation 'io.dscope.camel:camel-persistence-jdbc:1.1.0'
 }
 ```
 
@@ -76,8 +99,8 @@ For Redis backend:
 
 ```groovy
 dependencies {
-  implementation 'io.dscope.camel:camel-persistence-core:1.0.0'
-  implementation 'io.dscope.camel:camel-persistence-redis:1.0.0'
+  implementation 'io.dscope.camel:camel-persistence-core:1.1.0'
+  implementation 'io.dscope.camel:camel-persistence-redis:1.1.0'
 }
 ```
 
@@ -85,8 +108,8 @@ dependencies {
 
 ```kotlin
 dependencies {
-  implementation("io.dscope.camel:camel-persistence-core:1.0.0")
-  implementation("io.dscope.camel:camel-persistence-jdbc:1.0.0")
+  implementation("io.dscope.camel:camel-persistence-core:1.1.0")
+  implementation("io.dscope.camel:camel-persistence-jdbc:1.1.0")
 }
 ```
 
@@ -94,8 +117,8 @@ For Redis backend:
 
 ```kotlin
 dependencies {
-  implementation("io.dscope.camel:camel-persistence-core:1.0.0")
-  implementation("io.dscope.camel:camel-persistence-redis:1.0.0")
+  implementation("io.dscope.camel:camel-persistence-core:1.1.0")
+  implementation("io.dscope.camel:camel-persistence-redis:1.1.0")
 }
 ```
 
@@ -104,7 +127,7 @@ dependencies {
 Core keys resolved by `PersistenceConfiguration.fromProperties(...)`:
 
 - `camel.persistence.enabled` (default: `false`)
-- `camel.persistence.backend` (default: `redis`; values: `redis`, `jdbc`, `ic4j`)
+- `camel.persistence.backend` (default: `redis`; values: `redis`, `jdbc`, `redis_jdbc`, `ic4j`)
 - `camel.persistence.snapshot-every-events` (default: `25`)
 - `camel.persistence.max-replay-events` (default: `500`)
 - `camel.persistence.read-batch-size` (default: `200`)
@@ -127,6 +150,28 @@ Properties props = new Properties();
 props.setProperty("camel.persistence.enabled", "true");
 props.setProperty("camel.persistence.backend", "jdbc");
 props.setProperty("camel.persistence.jdbc.url", "jdbc:derby:memory:camelPersistence;create=true");
+
+PersistenceConfiguration configuration = PersistenceConfiguration.fromProperties(props);
+FlowStateStore store = FlowStateStoreFactory.create(configuration);
+
+// Example read
+var rehydrated = store.rehydrate("order", "order-123");
+```
+
+### Quick Start (Redis)
+
+```java
+import io.dscope.camel.persistence.core.FlowStateStore;
+import io.dscope.camel.persistence.core.FlowStateStoreFactory;
+import io.dscope.camel.persistence.core.PersistenceConfiguration;
+
+import java.util.Properties;
+
+Properties props = new Properties();
+props.setProperty("camel.persistence.enabled", "true");
+props.setProperty("camel.persistence.backend", "redis");
+props.setProperty("camel.persistence.redis.uri", "redis://localhost:6379");
+props.setProperty("camel.persistence.redis.key-prefix", "camel:state");
 
 PersistenceConfiguration configuration = PersistenceConfiguration.fromProperties(props);
 FlowStateStore store = FlowStateStoreFactory.create(configuration);

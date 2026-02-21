@@ -27,4 +27,13 @@ class PersistenceConfigurationTest {
         assertEquals(PersistenceBackend.REDIS, config.backend());
         assertEquals(25, config.rehydrationPolicy().snapshotEveryEvents());
     }
+
+    @Test
+    void parsesCompositeBackendValue() {
+        Properties properties = new Properties();
+        properties.setProperty(PersistenceConfiguration.PERSISTENCE_BACKEND, "redis_jdbc");
+
+        PersistenceConfiguration config = PersistenceConfiguration.fromProperties(properties);
+        assertEquals(PersistenceBackend.REDIS_JDBC, config.backend());
+    }
 }
