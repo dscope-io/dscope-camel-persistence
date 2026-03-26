@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: io.dscope.camel.persistence.core.PersistenceConfigurationTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 s -- in io.dscope.camel.persistence.core.PersistenceConfigurationTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s -- in io.dscope.camel.persistence.core.PersistenceConfigurationTest

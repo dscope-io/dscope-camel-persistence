@@ -18,3 +18,5 @@ scripts/deploy-central.sh
 docs/MAVEN_CENTRAL_DEPLOYMENT.md
 __pycache__/
 *.pyc
+camel-persistence-jdbc/derby.log
+target/
