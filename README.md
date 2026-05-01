@@ -127,7 +127,7 @@ dependencies {
 Core keys resolved by `PersistenceConfiguration.fromProperties(...)`:
 
 - `camel.persistence.enabled` (default: `false`)
-- `camel.persistence.backend` (default: `redis`; values: `redis`, `jdbc`, `redis_jdbc`, `ic4j`)
+- `camel.persistence.backend` (default: `redis`; values: `redis`, `jdbc`, `redis_jdbc`, `redis_ic4j`, `ic4j`)
 - `camel.persistence.snapshot-every-events` (default: `25`)
 - `camel.persistence.max-replay-events` (default: `500`)
 - `camel.persistence.read-batch-size` (default: `200`)
@@ -183,7 +183,7 @@ var rehydrated = store.rehydrate("order", "order-123");
 ## Backend Notes
 
 - Provider resolution uses Java `ServiceLoader`; backend modules register `FlowStateStoreProvider` via `META-INF/services`.
-- `ic4j` provider currently throws `BackendUnavailableException` (scaffold only).
+- `ic4j` provider currently throws `BackendUnavailableException` (scaffold only); `redis_ic4j` is accepted as the Redis-primary composite value for that durable backend.
 
 ## Testing
 

@@ -5,6 +5,7 @@
 ### Highlights
 - Updated release version from `1.1.0` to `1.2.0` across root and module POMs.
 - Updated consumer dependency examples in `README.md` and integration docs to `1.2.0`.
+- Documented `redis_ic4j` as the Redis-primary composite backend value for IC4J.
 
 ### Modules in this release
 - `io.dscope.camel:camel-persistence:1.2.0` (parent POM)
@@ -17,7 +18,7 @@
 ### Validation
 - Reactor clean test completed successfully with `mvn clean test`.
 - Artifacts were installed to the local Maven repository with `mvn install`.
-- Redis contract tests were skipped because Redis was not reachable at `redis://localhost:6379`.
+- Redis contract tests passed against local Redis at `redis://localhost:6379`.
 
 ## v1.1.0 (2026-02-20)
 

@@ -7,6 +7,7 @@ It covers:
 - JDBC-only persistence
 - Redis-only persistence
 - Combined Redis primary + JDBC fallback/source-of-truth (`redis_jdbc`)
+- Combined Redis primary + IC4J durable backend (`redis_ic4j`)
 
 ## 1) Integration model
 
@@ -79,12 +80,32 @@ Use `core` and one or more backend modules depending on scenario.
 </dependency>
 ```
 
+### Combined Redis+IC4J (`redis_ic4j`)
+
+```xml
+<dependency>
+  <groupId>io.dscope.camel</groupId>
+  <artifactId>camel-persistence-core</artifactId>
+  <version>1.2.0</version>
+</dependency>
+<dependency>
+  <groupId>io.dscope.camel</groupId>
+  <artifactId>camel-persistence-redis</artifactId>
+  <version>1.2.0</version>
+</dependency>
+<dependency>
+  <groupId>io.dscope.camel</groupId>
+  <artifactId>camel-persistence-ic4j</artifactId>
+  <version>1.2.0</version>
+</dependency>
+```
+
 ## 3) Configuration properties
 
 Common:
 
 - `camel.persistence.enabled`
-- `camel.persistence.backend` (`redis`, `jdbc`, `redis_jdbc`, `ic4j`)
+- `camel.persistence.backend` (`redis`, `jdbc`, `redis_jdbc`, `redis_ic4j`, `ic4j`)
 - `camel.persistence.snapshot-every-events`
 - `camel.persistence.max-replay-events`
 - `camel.persistence.read-batch-size`
@@ -208,6 +229,10 @@ Operational recommendation:
 - treat JDBC as authoritative history
 - treat Redis as performance layer
 
+### D) Combined (`backend=redis_ic4j`)
+
+Use the same Redis-primary composite behavior as `redis_jdbc`, with IC4J selected as the durable backend. The current IC4J provider is scaffolded and throws `BackendUnavailableException` until its store implementation is completed.
+
 ## 7) Suggested property sets
 
 ### JDBC-only
@@ -241,11 +266,20 @@ camel.persistence.jdbc.user=agui
 camel.persistence.jdbc.password=secret
 ```
 
+### Combined Redis+IC4J
+
+```properties
+camel.persistence.enabled=true
+camel.persistence.backend=redis_ic4j
+camel.persistence.redis.uri=redis://localhost:6379
+camel.persistence.redis.key-prefix=agui:state
+```
+
 ## 8) Error handling guidance for component authors
 
 - Handle `OptimisticConflictException` by reloading (`rehydrate`) and retrying command decision.
 - Treat backend unavailability as retriable infrastructure failure.
-- In `redis_jdbc`, Redis failures on cache update should not be treated as write-loss when JDBC append succeeds.
+- In `redis_jdbc` and `redis_ic4j`, Redis failures on cache update should not be treated as write-loss when the durable append succeeds.
 
 ## 9) Testing strategy for third-party components
 
@@ -254,7 +288,7 @@ Minimum recommended tests:
 1. optimistic conflict path
 2. idempotency key duplicate path
 3. snapshot + tail replay correctness
-4. `redis_jdbc` fallback path (Redis miss/error -> JDBC success)
+4. composite fallback path (`redis_jdbc` or `redis_ic4j`: Redis miss/error -> durable store success)
 
 ## 10) Compatibility note
 
