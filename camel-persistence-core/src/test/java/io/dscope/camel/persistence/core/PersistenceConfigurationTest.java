@@ -36,4 +36,13 @@ class PersistenceConfigurationTest {
         PersistenceConfiguration config = PersistenceConfiguration.fromProperties(properties);
         assertEquals(PersistenceBackend.REDIS_JDBC, config.backend());
     }
+
+    @Test
+    void parsesRedisIc4jCompositeBackendValue() {
+        Properties properties = new Properties();
+        properties.setProperty(PersistenceConfiguration.PERSISTENCE_BACKEND, "redis-ic4j");
+
+        PersistenceConfiguration config = PersistenceConfiguration.fromProperties(properties);
+        assertEquals(PersistenceBackend.REDIS_IC4J, config.backend());
+    }
 }

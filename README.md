@@ -2,7 +2,7 @@
 
 `camel-persistence` is a modular persistence layer for Camel-style flow state, with pluggable backends.
 
-[![version](https://img.shields.io/badge/version-1.1.0-brightgreen)](https://github.com/dscope-io/dscope-camel-persistence/releases/tag/v1.1.0)
+[![version](https://img.shields.io/badge/version-1.2.0-brightgreen)](https://github.com/dscope-io/dscope-camel-persistence/releases/tag/v1.2.0)
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
 [![java](https://img.shields.io/badge/java-21-orange)](https://openjdk.org/)
 
@@ -34,9 +34,9 @@
 
 ## Version
 
-Current stable release: `1.1.0`
+Current stable release: `1.2.0`
 
-Canonical root artifact (parent POM): `io.dscope.camel:camel-persistence:1.1.0`
+Canonical root artifact (parent POM): `io.dscope.camel:camel-persistence:1.2.0`
 
 Canonical Maven package URL (PURL): `pkg:maven/io.dscope.camel/camel-persistence`
 
@@ -60,13 +60,13 @@ Use `core` plus one backend module (`jdbc` or `redis`).
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-core</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
 </dependency>
 
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-jdbc</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
 </dependency>
 ```
 
@@ -76,13 +76,13 @@ Use `core` plus one backend module (`jdbc` or `redis`).
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-core</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
 </dependency>
 
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-redis</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
 </dependency>
 ```
 
@@ -90,8 +90,8 @@ Use `core` plus one backend module (`jdbc` or `redis`).
 
 ```groovy
 dependencies {
-  implementation 'io.dscope.camel:camel-persistence-core:1.1.0'
-  implementation 'io.dscope.camel:camel-persistence-jdbc:1.1.0'
+  implementation 'io.dscope.camel:camel-persistence-core:1.2.0'
+  implementation 'io.dscope.camel:camel-persistence-jdbc:1.2.0'
 }
 ```
 
@@ -99,8 +99,8 @@ For Redis backend:
 
 ```groovy
 dependencies {
-  implementation 'io.dscope.camel:camel-persistence-core:1.1.0'
-  implementation 'io.dscope.camel:camel-persistence-redis:1.1.0'
+  implementation 'io.dscope.camel:camel-persistence-core:1.2.0'
+  implementation 'io.dscope.camel:camel-persistence-redis:1.2.0'
 }
 ```
 
@@ -108,8 +108,8 @@ dependencies {
 
 ```kotlin
 dependencies {
-  implementation("io.dscope.camel:camel-persistence-core:1.1.0")
-  implementation("io.dscope.camel:camel-persistence-jdbc:1.1.0")
+  implementation("io.dscope.camel:camel-persistence-core:1.2.0")
+  implementation("io.dscope.camel:camel-persistence-jdbc:1.2.0")
 }
 ```
 
@@ -117,8 +117,8 @@ For Redis backend:
 
 ```kotlin
 dependencies {
-  implementation("io.dscope.camel:camel-persistence-core:1.1.0")
-  implementation("io.dscope.camel:camel-persistence-redis:1.1.0")
+  implementation("io.dscope.camel:camel-persistence-core:1.2.0")
+  implementation("io.dscope.camel:camel-persistence-redis:1.2.0")
 }
 ```
 

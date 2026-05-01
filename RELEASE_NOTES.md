@@ -1,5 +1,24 @@
 # Release Notes
 
+## v1.2.0 (2026-05-01)
+
+### Highlights
+- Updated release version from `1.1.0` to `1.2.0` across root and module POMs.
+- Updated consumer dependency examples in `README.md` and integration docs to `1.2.0`.
+
+### Modules in this release
+- `io.dscope.camel:camel-persistence:1.2.0` (parent POM)
+- `io.dscope.camel:camel-persistence-core:1.2.0`
+- `io.dscope.camel:camel-persistence-testkit:1.2.0`
+- `io.dscope.camel:camel-persistence-redis:1.2.0`
+- `io.dscope.camel:camel-persistence-jdbc:1.2.0`
+- `io.dscope.camel:camel-persistence-ic4j:1.2.0`
+
+### Validation
+- Reactor clean test completed successfully with `mvn clean test`.
+- Artifacts were installed to the local Maven repository with `mvn install`.
+- Redis contract tests were skipped because Redis was not reachable at `redis://localhost:6379`.
+
 ## v1.1.0 (2026-02-20)
 
 ### Highlights

@@ -12,6 +12,7 @@ io/dscope/camel/persistence/core/PersistedEvent.class
 io/dscope/camel/persistence/core/exception/DuplicateEventException.class
 io/dscope/camel/persistence/core/AppendResult.class
 io/dscope/camel/persistence/core/FlowStateMachine.class
+io/dscope/camel/persistence/core/RedisBackedFlowStateStore.class
 io/dscope/camel/persistence/core/exception/BackendUnavailableException.class
 io/dscope/camel/persistence/core/FlowStateStoreFactory.class
 io/dscope/camel/persistence/core/exception/PersistenceException.class

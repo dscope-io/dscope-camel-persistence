@@ -35,12 +35,12 @@ Use `core` and one or more backend modules depending on scenario.
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-core</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
 </dependency>
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-jdbc</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
 </dependency>
 ```
 
@@ -50,12 +50,12 @@ Use `core` and one or more backend modules depending on scenario.
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-core</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
 </dependency>
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-redis</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
 </dependency>
 ```
 
@@ -65,17 +65,17 @@ Use `core` and one or more backend modules depending on scenario.
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-core</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
 </dependency>
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-redis</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
 </dependency>
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-jdbc</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
 </dependency>
 ```
 

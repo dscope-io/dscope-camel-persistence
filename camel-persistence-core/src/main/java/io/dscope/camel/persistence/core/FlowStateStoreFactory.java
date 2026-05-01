@@ -26,15 +26,10 @@ public final class FlowStateStoreFactory {
     public static FlowStateStore create(PersistenceConfiguration configuration) {
         Map<PersistenceBackend, FlowStateStoreProvider> providers = loadProviders();
         if (configuration.backend() == PersistenceBackend.REDIS_JDBC) {
-            FlowStateStoreProvider redis = providers.get(PersistenceBackend.REDIS);
-            FlowStateStoreProvider jdbc = providers.get(PersistenceBackend.JDBC);
-            if (redis == null || jdbc == null) {
-                throw new BackendUnavailableException("Both REDIS and JDBC providers are required for backend REDIS_JDBC");
-            }
-            return new RedisJdbcFlowStateStore(
-                redis.create(configuration),
-                jdbc.create(configuration)
-            );
+            return createRedisBackedStore(configuration, providers, PersistenceBackend.JDBC);
+        }
+        if (configuration.backend() == PersistenceBackend.REDIS_IC4J) {
+            return createRedisBackedStore(configuration, providers, PersistenceBackend.IC4J);
         }
 
         FlowStateStoreProvider provider = providers.get(configuration.backend());
@@ -42,6 +37,24 @@ public final class FlowStateStoreFactory {
             return provider.create(configuration);
         }
         throw new BackendUnavailableException("No FlowStateStoreProvider found for backend " + configuration.backend());
+    }
+
+    private static FlowStateStore createRedisBackedStore(
+        PersistenceConfiguration configuration,
+        Map<PersistenceBackend, FlowStateStoreProvider> providers,
+        PersistenceBackend durableBackend
+    ) {
+        FlowStateStoreProvider redis = providers.get(PersistenceBackend.REDIS);
+        FlowStateStoreProvider durable = providers.get(durableBackend);
+        if (redis == null || durable == null) {
+            throw new BackendUnavailableException(
+                "Both REDIS and " + durableBackend + " providers are required for backend " + configuration.backend()
+            );
+        }
+        return new RedisBackedFlowStateStore(
+            redis.create(configuration),
+            durable.create(configuration)
+        );
     }
 
     private static Map<PersistenceBackend, FlowStateStoreProvider> loadProviders() {

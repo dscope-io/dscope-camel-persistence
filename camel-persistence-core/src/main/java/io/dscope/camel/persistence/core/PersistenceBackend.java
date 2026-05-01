@@ -17,6 +17,7 @@ public enum PersistenceBackend {
     REDIS,
     JDBC,
     REDIS_JDBC,
+    REDIS_IC4J,
     IC4J;
 
     public static PersistenceBackend parse(String value) {
