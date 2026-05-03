@@ -1,1 +1,9 @@
+io/dscope/camel/persistence/ic4j/Ic4jFlowStateStore$IcpStateEnvelope.class
+io/dscope/camel/persistence/ic4j/Ic4jFlowStateStore$IcpEventRecord.class
+io/dscope/camel/persistence/ic4j/CamelIc4jPersistenceClient.class
+io/dscope/camel/persistence/ic4j/Ic4jFlowStateStore.class
+io/dscope/camel/persistence/ic4j/Ic4jFlowStateStore$IcpRehydratedState.class
+io/dscope/camel/persistence/ic4j/Ic4jFlowStateStore$AppendEventsRequest.class
 io/dscope/camel/persistence/ic4j/Ic4jFlowStateStoreProvider.class
+io/dscope/camel/persistence/ic4j/Ic4jPersistenceClient.class
+io/dscope/camel/persistence/ic4j/Ic4jFlowStateStore$WriteSnapshotRequest.class

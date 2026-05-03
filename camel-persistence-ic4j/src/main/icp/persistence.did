@@ -1,0 +1,81 @@
+type AppendResult = record {
+  previousVersion : nat64;
+  nextVersion : nat64;
+  duplicate : bool;
+};
+
+type PersistedEvent = record {
+  eventId : text;
+  flowType : text;
+  flowId : text;
+  sequence : nat64;
+  eventType : text;
+  payloadJson : text;
+  occurredAt : text;
+  idempotencyKey : text;
+};
+
+type StateEnvelope = record {
+  flowType : text;
+  flowId : text;
+  version : nat64;
+  snapshotVersion : nat64;
+  snapshotJson : text;
+  lastUpdatedAt : text;
+  metadataJson : text;
+};
+
+type RehydratedState = record {
+  envelope : StateEnvelope;
+  tailEvents : vec PersistedEvent;
+};
+
+type PersistenceError = record {
+  code : text;
+  message : text;
+};
+
+type AppendEventsRequest = record {
+  flowType : text;
+  flowId : text;
+  expectedVersion : nat64;
+  events : vec PersistedEvent;
+  idempotencyKey : text;
+};
+
+type AppendEventsResponse = record {
+  result : opt AppendResult;
+  error : opt PersistenceError;
+};
+
+type WriteSnapshotRequest = record {
+  flowType : text;
+  flowId : text;
+  version : nat64;
+  snapshotJson : text;
+  metadataJson : text;
+};
+
+type MutationResponse = record {
+  result : opt bool;
+  error : opt PersistenceError;
+};
+
+type FlowKey = record {
+  flowType : text;
+  flowId : text;
+};
+
+type ReadEventsRequest = record {
+  flowType : text;
+  flowId : text;
+  afterVersion : nat64;
+  limit : nat32;
+};
+
+service : {
+  appendEvents : (AppendEventsRequest) -> (AppendEventsResponse);
+  writeSnapshot : (WriteSnapshotRequest) -> (MutationResponse);
+  rehydrate : (FlowKey) -> (RehydratedState) query;
+  readEvents : (ReadEventsRequest) -> (vec PersistedEvent) query;
+};

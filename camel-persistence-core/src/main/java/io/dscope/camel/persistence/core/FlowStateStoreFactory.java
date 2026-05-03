@@ -13,10 +13,11 @@
  */
 package io.dscope.camel.persistence.core;
 
-import io.dscope.camel.persistence.core.exception.BackendUnavailableException;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.ServiceLoader;
+
+import io.dscope.camel.persistence.core.exception.BackendUnavailableException;
 
 public final class FlowStateStoreFactory {
 

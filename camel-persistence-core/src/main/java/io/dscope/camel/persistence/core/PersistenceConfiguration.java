@@ -23,7 +23,14 @@ public record PersistenceConfiguration(
     String redisKeyPrefix,
     String jdbcUrl,
     String jdbcUser,
-    String jdbcPassword
+    String jdbcPassword,
+    String icpReplicaUrl,
+    String icpCanisterId,
+    boolean icpFetchRootKey,
+    boolean icpLoadIdl,
+    String icpIdlFile,
+    int icpWaiterTimeout,
+    int icpWaiterSleep
 ) {
     public static final String PERSISTENCE_ENABLED = "camel.persistence.enabled";
     public static final String PERSISTENCE_BACKEND = "camel.persistence.backend";
@@ -35,6 +42,13 @@ public record PersistenceConfiguration(
     public static final String JDBC_URL = "camel.persistence.jdbc.url";
     public static final String JDBC_USER = "camel.persistence.jdbc.user";
     public static final String JDBC_PASSWORD = "camel.persistence.jdbc.password";
+    public static final String ICP_REPLICA_URL = "camel.persistence.icp.replica-url";
+    public static final String ICP_CANISTER_ID = "camel.persistence.icp.canister-id";
+    public static final String ICP_FETCH_ROOT_KEY = "camel.persistence.icp.fetch-root-key";
+    public static final String ICP_LOAD_IDL = "camel.persistence.icp.load-idl";
+    public static final String ICP_IDL_FILE = "camel.persistence.icp.idl-file";
+    public static final String ICP_WAITER_TIMEOUT = "camel.persistence.icp.waiter-timeout";
+    public static final String ICP_WAITER_SLEEP = "camel.persistence.icp.waiter-sleep";
 
     public static PersistenceConfiguration fromProperties(Properties properties) {
         boolean enabled = Boolean.parseBoolean(properties.getProperty(PERSISTENCE_ENABLED, "false"));
@@ -47,6 +61,13 @@ public record PersistenceConfiguration(
         String jdbcUrl = properties.getProperty(JDBC_URL, "jdbc:derby:memory:camelPersistence;create=true");
         String jdbcUser = properties.getProperty(JDBC_USER, "");
         String jdbcPassword = properties.getProperty(JDBC_PASSWORD, "");
+        String icpReplicaUrl = properties.getProperty(ICP_REPLICA_URL, "http://127.0.0.1:4943/");
+        String icpCanisterId = properties.getProperty(ICP_CANISTER_ID, "");
+        boolean icpFetchRootKey = Boolean.parseBoolean(properties.getProperty(ICP_FETCH_ROOT_KEY, "true"));
+        boolean icpLoadIdl = Boolean.parseBoolean(properties.getProperty(ICP_LOAD_IDL, "true"));
+        String icpIdlFile = properties.getProperty(ICP_IDL_FILE, "");
+        int icpWaiterTimeout = Integer.parseInt(properties.getProperty(ICP_WAITER_TIMEOUT, "60"));
+        int icpWaiterSleep = Integer.parseInt(properties.getProperty(ICP_WAITER_SLEEP, "5"));
         return new PersistenceConfiguration(
             enabled,
             backend,
@@ -55,7 +76,14 @@ public record PersistenceConfiguration(
             redisKeyPrefix,
             jdbcUrl,
             jdbcUser,
-            jdbcPassword
+            jdbcPassword,
+            icpReplicaUrl,
+            icpCanisterId,
+            icpFetchRootKey,
+            icpLoadIdl,
+            icpIdlFile,
+            icpWaiterTimeout,
+            icpWaiterSleep
         );
     }
 }

@@ -30,18 +30,20 @@ Core APIs:
 
 Use `core` and one or more backend modules depending on scenario.
 
+For local development before a Central release is available, run `mvn clean install` from this repository root. That installs the `1.3.0` artifacts into `~/.m2/repository/io/dscope/camel/...` for nearby projects to consume.
+
 ### JDBC-only
 
 ```xml
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-core</artifactId>
-  <version>1.2.0</version>
+  <version>1.3.0</version>
 </dependency>
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-jdbc</artifactId>
-  <version>1.2.0</version>
+  <version>1.3.0</version>
 </dependency>
 ```
 
@@ -51,12 +53,12 @@ Use `core` and one or more backend modules depending on scenario.
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-core</artifactId>
-  <version>1.2.0</version>
+  <version>1.3.0</version>
 </dependency>
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-redis</artifactId>
-  <version>1.2.0</version>
+  <version>1.3.0</version>
 </dependency>
 ```
 
@@ -66,17 +68,17 @@ Use `core` and one or more backend modules depending on scenario.
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-core</artifactId>
-  <version>1.2.0</version>
+  <version>1.3.0</version>
 </dependency>
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-redis</artifactId>
-  <version>1.2.0</version>
+  <version>1.3.0</version>
 </dependency>
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-jdbc</artifactId>
-  <version>1.2.0</version>
+  <version>1.3.0</version>
 </dependency>
 ```
 
@@ -86,17 +88,32 @@ Use `core` and one or more backend modules depending on scenario.
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-core</artifactId>
-  <version>1.2.0</version>
+  <version>1.3.0</version>
 </dependency>
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-redis</artifactId>
-  <version>1.2.0</version>
+  <version>1.3.0</version>
 </dependency>
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-ic4j</artifactId>
-  <version>1.2.0</version>
+  <version>1.3.0</version>
+</dependency>
+```
+
+### IC4J-only (`ic4j`)
+
+```xml
+<dependency>
+  <groupId>io.dscope.camel</groupId>
+  <artifactId>camel-persistence-core</artifactId>
+  <version>1.3.0</version>
+</dependency>
+<dependency>
+  <groupId>io.dscope.camel</groupId>
+  <artifactId>camel-persistence-ic4j</artifactId>
+  <version>1.3.0</version>
 </dependency>
 ```
 
@@ -120,6 +137,16 @@ JDBC:
 - `camel.persistence.jdbc.url`
 - `camel.persistence.jdbc.user`
 - `camel.persistence.jdbc.password`
+
+IC4J / ICP:
+
+- `camel.persistence.icp.replica-url`
+- `camel.persistence.icp.canister-id`
+- `camel.persistence.icp.fetch-root-key`
+- `camel.persistence.icp.load-idl`
+- `camel.persistence.icp.idl-file`
+- `camel.persistence.icp.waiter-timeout`
+- `camel.persistence.icp.waiter-sleep`
 
 ## 4) AGUI-style component bootstrap example
 
@@ -231,7 +258,16 @@ Operational recommendation:
 
 ### D) Combined (`backend=redis_ic4j`)
 
-Use the same Redis-primary composite behavior as `redis_jdbc`, with IC4J selected as the durable backend. The current IC4J provider is scaffolded and throws `BackendUnavailableException` until its store implementation is completed.
+Use the same Redis-primary composite behavior as `redis_jdbc`, with IC4J selected as the durable backend. IC4J/ICP remains authoritative; Redis is a best-effort read-through/write-through cache.
+
+The IC4J backend calls a canister through `org.ic4j:ic4j-camel-core:0.8.2` using this method contract:
+
+- `appendEvents(AppendEventsRequest) -> AppendEventsResponse`
+- `writeSnapshot(WriteSnapshotRequest) -> MutationResponse`
+- `rehydrate(FlowKey) -> RehydratedState query`
+- `readEvents(ReadEventsRequest) -> vec PersistedEvent query`
+
+The reference Candid and Motoko canister live under `camel-persistence-ic4j/src/main/icp`. Event payloads, snapshots, and metadata are passed as JSON strings in Candid records and converted back to the core Java `JsonNode`/`Map` model by the IC4J store.
 
 ## 7) Suggested property sets
 
@@ -273,6 +309,19 @@ camel.persistence.enabled=true
 camel.persistence.backend=redis_ic4j
 camel.persistence.redis.uri=redis://localhost:6379
 camel.persistence.redis.key-prefix=agui:state
+camel.persistence.icp.replica-url=http://127.0.0.1:4943/
+camel.persistence.icp.canister-id=<dfx-canister-id>
+camel.persistence.icp.fetch-root-key=true
+```
+
+### IC4J-only
+
+```properties
+camel.persistence.enabled=true
+camel.persistence.backend=ic4j
+camel.persistence.icp.replica-url=http://127.0.0.1:4943/
+camel.persistence.icp.canister-id=<dfx-canister-id>
+camel.persistence.icp.fetch-root-key=true
 ```
 
 ## 8) Error handling guidance for component authors

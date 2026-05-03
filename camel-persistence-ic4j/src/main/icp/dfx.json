@@ -1,0 +1,8 @@
+{
+  "canisters": {
+    "camel_persistence": {
+      "main": "main.mo",
+      "type": "motoko"
+    }
+  }
+}

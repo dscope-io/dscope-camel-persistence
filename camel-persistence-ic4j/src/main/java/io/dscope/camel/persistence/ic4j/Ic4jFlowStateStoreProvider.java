@@ -28,6 +28,9 @@ public class Ic4jFlowStateStoreProvider implements FlowStateStoreProvider {
 
     @Override
     public FlowStateStore create(PersistenceConfiguration configuration) {
-        throw new BackendUnavailableException("IC4J backend scaffolded in Phase 1, implementation scheduled for Phase 3");
+        if (configuration.icpCanisterId() == null || configuration.icpCanisterId().isBlank()) {
+            throw new BackendUnavailableException("IC4J backend requires " + PersistenceConfiguration.ICP_CANISTER_ID);
+        }
+        return new Ic4jFlowStateStore(new CamelIc4jPersistenceClient(configuration));
     }
 }

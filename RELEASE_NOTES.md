@@ -1,5 +1,26 @@
 # Release Notes
 
+## v1.3.0 (2026-05-03)
+
+### Highlights
+- Updated release version from `1.2.0` to `1.3.0` across root and module POMs.
+- Updated Apache Camel dependencies from `4.15.0` to `4.20.0`.
+- Updated IC4J Camel dependency from `0.8.1` to `0.8.2`.
+- Added IC4J/ICP persistence implementation, reference Candid/Motoko canister resources, and IC4J configuration documentation.
+
+### Modules in this release
+- `io.dscope.camel:camel-persistence:1.3.0` (parent POM)
+- `io.dscope.camel:camel-persistence-core:1.3.0`
+- `io.dscope.camel:camel-persistence-testkit:1.3.0`
+- `io.dscope.camel:camel-persistence-redis:1.3.0`
+- `io.dscope.camel:camel-persistence-jdbc:1.3.0`
+- `io.dscope.camel:camel-persistence-ic4j:1.3.0`
+
+### Validation
+- Clean reactor test completed successfully with `mvn clean test`.
+- Local Maven install completed successfully with `mvn clean install`.
+- Redis contract tests passed against local Redis at `redis://localhost:6379`.
+
 ## v1.2.0 (2026-05-01)
 
 ### Highlights

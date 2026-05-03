@@ -13,9 +13,9 @@
  */
 package io.dscope.camel.persistence.core;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.util.Properties;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 class PersistenceConfigurationTest {
@@ -26,6 +26,9 @@ class PersistenceConfigurationTest {
         assertEquals(false, config.enabled());
         assertEquals(PersistenceBackend.REDIS, config.backend());
         assertEquals(25, config.rehydrationPolicy().snapshotEveryEvents());
+        assertEquals("http://127.0.0.1:4943/", config.icpReplicaUrl());
+        assertEquals(true, config.icpFetchRootKey());
+        assertEquals(true, config.icpLoadIdl());
     }
 
     @Test
@@ -44,5 +47,27 @@ class PersistenceConfigurationTest {
 
         PersistenceConfiguration config = PersistenceConfiguration.fromProperties(properties);
         assertEquals(PersistenceBackend.REDIS_IC4J, config.backend());
+    }
+
+    @Test
+    void readsIcpProperties() {
+        Properties properties = new Properties();
+        properties.setProperty(PersistenceConfiguration.ICP_REPLICA_URL, "http://localhost:4943/");
+        properties.setProperty(PersistenceConfiguration.ICP_CANISTER_ID, "aaaaa-aa");
+        properties.setProperty(PersistenceConfiguration.ICP_FETCH_ROOT_KEY, "false");
+        properties.setProperty(PersistenceConfiguration.ICP_LOAD_IDL, "false");
+        properties.setProperty(PersistenceConfiguration.ICP_IDL_FILE, "src/test/resources/persistence.did");
+        properties.setProperty(PersistenceConfiguration.ICP_WAITER_TIMEOUT, "30");
+        properties.setProperty(PersistenceConfiguration.ICP_WAITER_SLEEP, "2");
+
+        PersistenceConfiguration config = PersistenceConfiguration.fromProperties(properties);
+
+        assertEquals("http://localhost:4943/", config.icpReplicaUrl());
+        assertEquals("aaaaa-aa", config.icpCanisterId());
+        assertEquals(false, config.icpFetchRootKey());
+        assertEquals(false, config.icpLoadIdl());
+        assertEquals("src/test/resources/persistence.did", config.icpIdlFile());
+        assertEquals(30, config.icpWaiterTimeout());
+        assertEquals(2, config.icpWaiterSleep());
     }
 }

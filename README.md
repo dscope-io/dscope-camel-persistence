@@ -2,11 +2,11 @@
 
 `camel-persistence` is a modular persistence layer for Camel-style flow state, with pluggable backends.
 
-[![version](https://img.shields.io/badge/version-1.2.0-brightgreen)](https://github.com/dscope-io/dscope-camel-persistence/releases/tag/v1.2.0)
+[![version](https://img.shields.io/badge/version-1.3.0-brightgreen)](https://github.com/dscope-io/dscope-camel-persistence/releases/tag/v1.3.0)
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
 [![java](https://img.shields.io/badge/java-21-orange)](https://openjdk.org/)
 
-**Description:** Modular flow-state persistence for Apache Camel with pluggable JDBC and Redis backends.
+**Description:** Modular flow-state persistence for Apache Camel with pluggable JDBC, Redis, and IC4J/ICP backends.
 
 ## Documentation
 
@@ -29,14 +29,14 @@
 - `camel-persistence-core` — core contracts and factory (`FlowStateStore`, `PersistenceConfiguration`, `FlowStateStoreFactory`)
 - `camel-persistence-jdbc` — JDBC-backed implementation
 - `camel-persistence-redis` — Redis-backed implementation
-- `camel-persistence-ic4j` — IC4J provider scaffold (currently not implemented)
+- `camel-persistence-ic4j` — IC4J/ICP-backed implementation using the ICP Camel component
 - `camel-persistence-testkit` — backend contract test base (`FlowStateStoreContractSuite`)
 
 ## Version
 
-Current stable release: `1.2.0`
+Current stable release: `1.3.0`
 
-Canonical root artifact (parent POM): `io.dscope.camel:camel-persistence:1.2.0`
+Canonical root artifact (parent POM): `io.dscope.camel:camel-persistence:1.3.0`
 
 Canonical Maven package URL (PURL): `pkg:maven/io.dscope.camel/camel-persistence`
 
@@ -48,11 +48,12 @@ From repository root:
 mvn clean install
 ```
 
-This installs artifacts under `~/.m2/repository/io/dscope/camel/...`.
+This runs the reactor tests, packages each module, and installs artifacts under `~/.m2/repository/io/dscope/camel/...`.
+Redis-backed tests use `redis://localhost:6379` by default when Redis is running locally.
 
 ## Dependency Examples (for other projects)
 
-Use `core` plus one backend module (`jdbc` or `redis`).
+Use `core` plus one backend module (`jdbc`, `redis`, or `ic4j`).
 
 ### Maven
 
@@ -60,13 +61,13 @@ Use `core` plus one backend module (`jdbc` or `redis`).
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-core</artifactId>
-  <version>1.2.0</version>
+  <version>1.3.0</version>
 </dependency>
 
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-jdbc</artifactId>
-  <version>1.2.0</version>
+  <version>1.3.0</version>
 </dependency>
 ```
 
@@ -76,22 +77,40 @@ Use `core` plus one backend module (`jdbc` or `redis`).
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-core</artifactId>
-  <version>1.2.0</version>
+  <version>1.3.0</version>
 </dependency>
 
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-redis</artifactId>
-  <version>1.2.0</version>
+  <version>1.3.0</version>
 </dependency>
 ```
+
+### Maven (IC4J / ICP backend)
+
+```xml
+<dependency>
+  <groupId>io.dscope.camel</groupId>
+  <artifactId>camel-persistence-core</artifactId>
+  <version>1.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>io.dscope.camel</groupId>
+  <artifactId>camel-persistence-ic4j</artifactId>
+  <version>1.3.0</version>
+</dependency>
+```
+
+For Redis cache plus IC4J durable persistence, include `camel-persistence-core`, `camel-persistence-redis`, and `camel-persistence-ic4j`, then set `camel.persistence.backend=redis_ic4j`.
 
 ### Gradle (Groovy DSL)
 
 ```groovy
 dependencies {
-  implementation 'io.dscope.camel:camel-persistence-core:1.2.0'
-  implementation 'io.dscope.camel:camel-persistence-jdbc:1.2.0'
+  implementation 'io.dscope.camel:camel-persistence-core:1.3.0'
+  implementation 'io.dscope.camel:camel-persistence-jdbc:1.3.0'
 }
 ```
 
@@ -99,8 +118,17 @@ For Redis backend:
 
 ```groovy
 dependencies {
-  implementation 'io.dscope.camel:camel-persistence-core:1.2.0'
-  implementation 'io.dscope.camel:camel-persistence-redis:1.2.0'
+  implementation 'io.dscope.camel:camel-persistence-core:1.3.0'
+  implementation 'io.dscope.camel:camel-persistence-redis:1.3.0'
+}
+```
+
+For IC4J / ICP backend:
+
+```groovy
+dependencies {
+  implementation 'io.dscope.camel:camel-persistence-core:1.3.0'
+  implementation 'io.dscope.camel:camel-persistence-ic4j:1.3.0'
 }
 ```
 
@@ -108,8 +136,8 @@ dependencies {
 
 ```kotlin
 dependencies {
-  implementation("io.dscope.camel:camel-persistence-core:1.2.0")
-  implementation("io.dscope.camel:camel-persistence-jdbc:1.2.0")
+  implementation("io.dscope.camel:camel-persistence-core:1.3.0")
+  implementation("io.dscope.camel:camel-persistence-jdbc:1.3.0")
 }
 ```
 
@@ -117,8 +145,17 @@ For Redis backend:
 
 ```kotlin
 dependencies {
-  implementation("io.dscope.camel:camel-persistence-core:1.2.0")
-  implementation("io.dscope.camel:camel-persistence-redis:1.2.0")
+  implementation("io.dscope.camel:camel-persistence-core:1.3.0")
+  implementation("io.dscope.camel:camel-persistence-redis:1.3.0")
+}
+```
+
+For IC4J / ICP backend:
+
+```kotlin
+dependencies {
+  implementation("io.dscope.camel:camel-persistence-core:1.3.0")
+  implementation("io.dscope.camel:camel-persistence-ic4j:1.3.0")
 }
 ```
 
@@ -136,6 +173,13 @@ Core keys resolved by `PersistenceConfiguration.fromProperties(...)`:
 - `camel.persistence.jdbc.url` (default: `jdbc:derby:memory:camelPersistence;create=true`)
 - `camel.persistence.jdbc.user` (default: empty)
 - `camel.persistence.jdbc.password` (default: empty)
+- `camel.persistence.icp.replica-url` (default: `http://127.0.0.1:4943/`)
+- `camel.persistence.icp.canister-id` (required for `ic4j` and `redis_ic4j`)
+- `camel.persistence.icp.fetch-root-key` (default: `true`; use `false` for mainnet)
+- `camel.persistence.icp.load-idl` (default: `true`)
+- `camel.persistence.icp.idl-file` (default: empty)
+- `camel.persistence.icp.waiter-timeout` (default: `60`)
+- `camel.persistence.icp.waiter-sleep` (default: `5`)
 
 ## Quick Start
 
@@ -180,10 +224,32 @@ FlowStateStore store = FlowStateStoreFactory.create(configuration);
 var rehydrated = store.rehydrate("order", "order-123");
 ```
 
+### Quick Start (IC4J / ICP)
+
+```java
+import io.dscope.camel.persistence.core.FlowStateStore;
+import io.dscope.camel.persistence.core.FlowStateStoreFactory;
+import io.dscope.camel.persistence.core.PersistenceConfiguration;
+
+import java.util.Properties;
+
+Properties props = new Properties();
+props.setProperty("camel.persistence.enabled", "true");
+props.setProperty("camel.persistence.backend", "ic4j");
+props.setProperty("camel.persistence.icp.replica-url", "http://127.0.0.1:4943/");
+props.setProperty("camel.persistence.icp.canister-id", "<dfx-canister-id>");
+
+PersistenceConfiguration configuration = PersistenceConfiguration.fromProperties(props);
+FlowStateStore store = FlowStateStoreFactory.create(configuration);
+
+var rehydrated = store.rehydrate("order", "order-123");
+```
+
 ## Backend Notes
 
 - Provider resolution uses Java `ServiceLoader`; backend modules register `FlowStateStoreProvider` via `META-INF/services`.
-- `ic4j` provider currently throws `BackendUnavailableException` (scaffold only); `redis_ic4j` is accepted as the Redis-primary composite value for that durable backend.
+- `ic4j` uses `org.ic4j:ic4j-camel-core:0.8.2` and expects a canister implementing the Candid contract in `camel-persistence-ic4j/src/main/icp/persistence.did`.
+- `redis_ic4j` uses Redis as a best-effort cache over IC4J/ICP as the durable backend.
 
 ## Testing
 
