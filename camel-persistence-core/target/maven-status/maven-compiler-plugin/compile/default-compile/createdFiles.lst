@@ -1,3 +1,4 @@
+io/dscope/camel/persistence/core/IdGenerator.class
 io/dscope/camel/persistence/core/FlowStateStoreProvider.class
 io/dscope/camel/persistence/core/DecisionResult.class
 io/dscope/camel/persistence/core/FlowStateSerializer.class

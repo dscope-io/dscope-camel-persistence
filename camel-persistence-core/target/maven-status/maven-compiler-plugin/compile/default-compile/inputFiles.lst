@@ -11,6 +11,7 @@
 /Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/PersistenceConfiguration.java
 /Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/StateEnvelope.java
 /Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/FlowStateStore.java
+/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/IdGenerator.java
 /Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/FlowStateMachine.java
 /Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/RedisBackedFlowStateStore.java
 /Users/roman/Projects/DScope/CamelPersistence/camel-persistence-core/src/main/java/io/dscope/camel/persistence/core/FlowStateStoreFactory.java

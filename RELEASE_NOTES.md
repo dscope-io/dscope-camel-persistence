@@ -1,5 +1,12 @@
 # Release Notes
 
+## Unreleased
+
+### Documentation
+- Refreshed build/test/install guidance in `README.md` to use the verified reactor command: `mvn clean test install`.
+- Added a developer command quick-reference section in `README.md`.
+- Updated third-party integration docs to recommend test-verified local install flow before consuming local artifacts.
+
 ## v1.3.0 (2026-05-03)
 
 ### Highlights

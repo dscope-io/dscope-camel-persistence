@@ -30,7 +30,7 @@ Core APIs:
 
 Use `core` and one or more backend modules depending on scenario.
 
-For local development before a Central release is available, run `mvn clean install` from this repository root. That installs the `1.3.0` artifacts into `~/.m2/repository/io/dscope/camel/...` for nearby projects to consume.
+For local development before a Central release is available, run `mvn clean test install` from this repository root. That verifies tests and installs the `1.3.0` artifacts into `~/.m2/repository/io/dscope/camel/...` for nearby projects to consume.
 
 ### JDBC-only
 

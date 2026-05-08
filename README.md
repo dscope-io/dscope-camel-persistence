@@ -45,11 +45,26 @@ Canonical Maven package URL (PURL): `pkg:maven/io.dscope.camel/camel-persistence
 From repository root:
 
 ```bash
-mvn clean install
+mvn clean test install
 ```
 
 This runs the reactor tests, packages each module, and installs artifacts under `~/.m2/repository/io/dscope/camel/...`.
 Redis-backed tests use `redis://localhost:6379` by default when Redis is running locally.
+
+## Developer Commands
+
+From repository root:
+
+```bash
+# Full verification and local install
+mvn clean test install
+
+# Test only
+mvn test
+
+# Build one module with reactor dependencies
+mvn -pl camel-persistence-core -am test
+```
 
 ## Dependency Examples (for other projects)
 
