@@ -185,12 +185,12 @@ public class JdbcFlowStateStore implements FlowStateStore {
             query.setMaxRows(resolvedLimit);
             try (ResultSet rs = query.executeQuery()) {
                 while (rs.next()) {
-                    long sequence = rs.getLong("sequence");
-                    String eventId = rs.getString("event_id");
-                    String eventType = rs.getString("event_type");
-                    String payloadRaw = rs.getString("payload_json");
-                    String occurredAt = rs.getString("occurred_at");
-                    String idempotencyKey = rs.getString("idempotency_key");
+                    long sequence = rs.getLong(1);
+                    String eventId = rs.getString(2);
+                    String eventType = rs.getString(3);
+                    String payloadRaw = rs.getString(4);
+                    String occurredAt = rs.getString(5);
+                    String idempotencyKey = rs.getString(6);
 
                     JsonNode payload = mapper.readTree(payloadRaw == null ? "{}" : payloadRaw);
                     events.add(new PersistedEvent(eventId, flowType, flowId, sequence, eventType, payload, occurredAt, idempotencyKey));
@@ -212,12 +212,12 @@ public class JdbcFlowStateStore implements FlowStateStore {
             query.setString(2, flowId);
             try (ResultSet rs = query.executeQuery()) {
                 if (rs.next()) {
-                    long version = rs.getLong("version");
+                    long version = rs.getLong(1);
                     JsonNode snapshot;
                     Map<String, Object> metadata;
                     try {
-                        snapshot = mapper.readTree(rs.getString("snapshot_json"));
-                        metadata = mapper.readValue(rs.getString("metadata_json"), new TypeReference<Map<String, Object>>() {});
+                        snapshot = mapper.readTree(rs.getString(2));
+                        metadata = mapper.readValue(rs.getString(3), new TypeReference<Map<String, Object>>() {});
                     } catch (Exception e) {
                         throw new BackendUnavailableException("Failed to decode snapshot", e);
                     }
@@ -227,7 +227,7 @@ public class JdbcFlowStateStore implements FlowStateStore {
                         version,
                         version,
                         snapshot,
-                        rs.getString("last_updated_at"),
+                        rs.getString(4),
                         metadata
                     );
                 }
