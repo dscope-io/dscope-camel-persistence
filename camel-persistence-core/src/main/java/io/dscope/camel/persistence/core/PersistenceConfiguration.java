@@ -24,6 +24,7 @@ public record PersistenceConfiguration(
     String jdbcUrl,
     String jdbcUser,
     String jdbcPassword,
+    String jdbcSchemaDdlResource,
     String icpReplicaUrl,
     String icpCanisterId,
     boolean icpFetchRootKey,
@@ -42,6 +43,7 @@ public record PersistenceConfiguration(
     public static final String JDBC_URL = "camel.persistence.jdbc.url";
     public static final String JDBC_USER = "camel.persistence.jdbc.user";
     public static final String JDBC_PASSWORD = "camel.persistence.jdbc.password";
+    public static final String JDBC_SCHEMA_DDL_RESOURCE = "camel.persistence.jdbc.schema.ddl-resource";
     public static final String ICP_REPLICA_URL = "camel.persistence.icp.replica-url";
     public static final String ICP_CANISTER_ID = "camel.persistence.icp.canister-id";
     public static final String ICP_FETCH_ROOT_KEY = "camel.persistence.icp.fetch-root-key";
@@ -61,6 +63,7 @@ public record PersistenceConfiguration(
         String jdbcUrl = properties.getProperty(JDBC_URL, "jdbc:derby:memory:camelPersistence;create=true");
         String jdbcUser = properties.getProperty(JDBC_USER, "");
         String jdbcPassword = properties.getProperty(JDBC_PASSWORD, "");
+        String jdbcSchemaDdlResource = properties.getProperty(JDBC_SCHEMA_DDL_RESOURCE, "builtin");
         String icpReplicaUrl = properties.getProperty(ICP_REPLICA_URL, "http://127.0.0.1:4943/");
         String icpCanisterId = properties.getProperty(ICP_CANISTER_ID, "");
         boolean icpFetchRootKey = Boolean.parseBoolean(properties.getProperty(ICP_FETCH_ROOT_KEY, "true"));
@@ -77,6 +80,7 @@ public record PersistenceConfiguration(
             jdbcUrl,
             jdbcUser,
             jdbcPassword,
+            jdbcSchemaDdlResource,
             icpReplicaUrl,
             icpCanisterId,
             icpFetchRootKey,

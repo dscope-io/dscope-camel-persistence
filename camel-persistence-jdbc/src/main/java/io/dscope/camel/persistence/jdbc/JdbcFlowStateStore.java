@@ -33,22 +33,31 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class JdbcFlowStateStore implements FlowStateStore {
 
     private static final String TABLE_SNAPSHOT = "camel_flow_snapshot";
     private static final String TABLE_EVENT = "camel_flow_event";
     private static final String TABLE_IDEMPOTENCY = "camel_flow_idempotency";
+    private static final String BUILTIN_SCHEMA_RESOURCE = "builtin";
+    private static final Pattern STATEMENT_SEPARATOR = Pattern.compile(";\\s*(?:\\R|$)");
 
     private final ObjectMapper mapper = new ObjectMapper();
     private final String jdbcUrl;
     private final String jdbcUser;
     private final String jdbcPassword;
+    private final String schemaDdlResource;
 
     public JdbcFlowStateStore(String jdbcUrl, String jdbcUser, String jdbcPassword) {
+        this(jdbcUrl, jdbcUser, jdbcPassword, BUILTIN_SCHEMA_RESOURCE);
+    }
+
+    public JdbcFlowStateStore(String jdbcUrl, String jdbcUser, String jdbcPassword, String schemaDdlResource) {
         this.jdbcUrl = jdbcUrl;
         this.jdbcUser = jdbcUser == null ? "" : jdbcUser;
         this.jdbcPassword = jdbcPassword == null ? "" : jdbcPassword;
+        this.schemaDdlResource = schemaDdlResource == null ? BUILTIN_SCHEMA_RESOURCE : schemaDdlResource.trim();
         initializeSchema();
     }
 
@@ -285,6 +294,13 @@ public class JdbcFlowStateStore implements FlowStateStore {
     }
 
     private void initializeSchema() {
+        if (schemaDdlResource.isBlank()) {
+            return;
+        }
+        if (!BUILTIN_SCHEMA_RESOURCE.equalsIgnoreCase(schemaDdlResource)) {
+            initializeSchemaFromResource(schemaDdlResource);
+            return;
+        }
         try (Connection connection = newConnection(); Statement statement = connection.createStatement()) {
             createTableIfMissing(statement,
                 "CREATE TABLE " + TABLE_SNAPSHOT + " ("
@@ -321,6 +337,42 @@ public class JdbcFlowStateStore implements FlowStateStore {
         } catch (Exception e) {
             throw new BackendUnavailableException("Failed to initialize JDBC persistence schema", e);
         }
+    }
+
+    private void initializeSchemaFromResource(String resource) {
+        String normalized = resource.startsWith("classpath:") ? resource.substring("classpath:".length()) : resource;
+        while (normalized.startsWith("/")) {
+            normalized = normalized.substring(1);
+        }
+        try (var stream = Thread.currentThread().getContextClassLoader().getResourceAsStream(normalized)) {
+            if (stream == null) {
+                throw new BackendUnavailableException("JDBC persistence schema resource not found: " + resource);
+            }
+            String ddl = new String(stream.readAllBytes(), java.nio.charset.StandardCharsets.UTF_8);
+            try (Connection connection = newConnection(); Statement statement = connection.createStatement()) {
+                for (String sql : STATEMENT_SEPARATOR.split(ddl)) {
+                    String trimmed = withoutLineComments(sql).trim();
+                    if (!trimmed.isBlank()) {
+                        statement.executeUpdate(trimmed);
+                    }
+                }
+            }
+        } catch (BackendUnavailableException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new BackendUnavailableException("Failed to initialize JDBC persistence schema from " + resource, e);
+        }
+    }
+
+    private String withoutLineComments(String sql) {
+        StringBuilder builder = new StringBuilder();
+        for (String line : sql.split("\\R")) {
+            String trimmed = line.trim();
+            if (!trimmed.startsWith("--")) {
+                builder.append(line).append(System.lineSeparator());
+            }
+        }
+        return builder.toString();
     }
 
     private Connection newConnection() throws SQLException {

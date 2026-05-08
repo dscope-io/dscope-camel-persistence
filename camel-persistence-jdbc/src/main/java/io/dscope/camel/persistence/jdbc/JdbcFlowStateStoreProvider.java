@@ -30,7 +30,8 @@ public class JdbcFlowStateStoreProvider implements FlowStateStoreProvider {
         return new JdbcFlowStateStore(
             configuration.jdbcUrl(),
             configuration.jdbcUser(),
-            configuration.jdbcPassword()
+            configuration.jdbcPassword(),
+            configuration.jdbcSchemaDdlResource()
         );
     }
 }
