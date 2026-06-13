@@ -1,91 +1,104 @@
 ----------------------------------------------------------------
-Fri May 08 16:16:50 PDT 2026:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance a816c00e-019e-09e1-2192-000016f4f198 
-on database directory memory:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc/camelPersistenceTest193324ea053a4d769d1f4dde6a302269 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1cf4f579 
+Sat Jun 13 15:37:47 CEST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance a816c00e-019e-c133-f2c8-000016f35340 
+on database directory memory:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc/camelPersistenceTestafbd0074e0b54af7a7d6763c4c689b1b with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1cf4f579 
 Loaded from file:/Users/roman/.m2/repository/org/apache/derby/derby/10.17.1.0/derby-10.17.1.0.jar
 java.vendor=Oracle Corporation
 java.runtime.version=21.0.2+13-58
 user.dir=/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc
 os.name=Mac OS X
 os.arch=aarch64
-os.version=15.7.5
+os.version=26.5.1
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Fri May 08 16:16:51 PDT 2026:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance 69c68125-019e-09e1-2192-000016f4f198 
-on database directory memory:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc/camelPersistenceTest93413dd5f3554343ab5bb9a8a873203a with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1cf4f579 
+Sat Jun 13 15:37:48 CEST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance c3cc812c-019e-c133-f2c8-000016f35340 
+on database directory memory:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc/camelPersistenceTest31e66f941a414c2f971651facca877ae with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1cf4f579 
 Loaded from file:/Users/roman/.m2/repository/org/apache/derby/derby/10.17.1.0/derby-10.17.1.0.jar
 java.vendor=Oracle Corporation
 java.runtime.version=21.0.2+13-58
 user.dir=/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc
 os.name=Mac OS X
 os.arch=aarch64
-os.version=15.7.5
+os.version=26.5.1
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Fri May 08 16:16:51 PDT 2026:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance db988235-019e-09e1-2192-000016f4f198 
-on database directory memory:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc/camelPersistenceTest3220adb7fc314f5ea91c148d5a1c5a76 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1cf4f579 
+Sat Jun 13 15:37:48 CEST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance 4368c243-019e-c133-f2c8-000016f35340 
+on database directory memory:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc/camelPersistenceContext7ecd8c5fe6234885bc669c90db718aea with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1cf4f579 
 Loaded from file:/Users/roman/.m2/repository/org/apache/derby/derby/10.17.1.0/derby-10.17.1.0.jar
 java.vendor=Oracle Corporation
 java.runtime.version=21.0.2+13-58
 user.dir=/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc
 os.name=Mac OS X
 os.arch=aarch64
-os.version=15.7.5
+os.version=26.5.1
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Fri May 08 16:16:51 PDT 2026:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance d2680341-019e-09e1-2192-000016f4f198 
-on database directory memory:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc/camelPersistenceContract5e21b3b6176d4c03b36717df4dd1ba9a with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1cf4f579 
+Sat Jun 13 15:37:48 CEST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance ecec0361-019e-c133-f2c8-000016f35340 
+on database directory memory:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc/camelPersistenceTestb4248e8ab52e43a19e348e64adb5af7a with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1cf4f579 
 Loaded from file:/Users/roman/.m2/repository/org/apache/derby/derby/10.17.1.0/derby-10.17.1.0.jar
 java.vendor=Oracle Corporation
 java.runtime.version=21.0.2+13-58
 user.dir=/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc
 os.name=Mac OS X
 os.arch=aarch64
-os.version=15.7.5
+os.version=26.5.1
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Fri May 08 16:16:51 PDT 2026:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance d3aa0451-019e-09e1-2192-000016f4f198 
-on database directory memory:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc/camelPersistenceContract9215470d8b3c4e02881867a4a8e37614 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1cf4f579 
+Sat Jun 13 15:37:48 CEST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance d2038474-019e-c133-f2c8-000016f35340 
+on database directory memory:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc/camelPersistenceContract7b21d5992e424fada187aaefca6abcab with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1cf4f579 
 Loaded from file:/Users/roman/.m2/repository/org/apache/derby/derby/10.17.1.0/derby-10.17.1.0.jar
 java.vendor=Oracle Corporation
 java.runtime.version=21.0.2+13-58
 user.dir=/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc
 os.name=Mac OS X
 os.arch=aarch64
-os.version=15.7.5
+os.version=26.5.1
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Fri May 08 16:16:51 PDT 2026:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance 85414567-019e-09e1-2192-000016f4f198 
-on database directory memory:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc/camelPersistenceContract4a01fde4291c4036892fb7499e492f37 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1cf4f579 
+Sat Jun 13 15:37:48 CEST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance f67dc58b-019e-c133-f2c8-000016f35340 
+on database directory memory:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc/camelPersistenceContract382c6d37dac94bf7a954a987d8664173 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1cf4f579 
 Loaded from file:/Users/roman/.m2/repository/org/apache/derby/derby/10.17.1.0/derby-10.17.1.0.jar
 java.vendor=Oracle Corporation
 java.runtime.version=21.0.2+13-58
 user.dir=/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc
 os.name=Mac OS X
 os.arch=aarch64
-os.version=15.7.5
+os.version=26.5.1
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Fri May 08 16:16:51 PDT 2026:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance d226c673-019e-09e1-2192-000016f4f198 
-on database directory memory:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc/camelPersistenceContractc4fe87bc2c0a480aa4da5753d759171a with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1cf4f579 
+Sat Jun 13 15:37:48 CEST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance c0f306a8-019e-c133-f2c8-000016f35340 
+on database directory memory:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc/camelPersistenceContract3c96205b3ac8488197b6227851016f13 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1cf4f579 
 Loaded from file:/Users/roman/.m2/repository/org/apache/derby/derby/10.17.1.0/derby-10.17.1.0.jar
 java.vendor=Oracle Corporation
 java.runtime.version=21.0.2+13-58
 user.dir=/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc
 os.name=Mac OS X
 os.arch=aarch64
-os.version=15.7.5
+os.version=26.5.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Sat Jun 13 15:37:48 CEST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.17.1.0 - (1913217): instance 975bc7bb-019e-c133-f2c8-000016f35340 
+on database directory memory:/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc/camelPersistenceContractdda2ca28e79e4b4386f5be848ed9f2f0 with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1cf4f579 
+Loaded from file:/Users/roman/.m2/repository/org/apache/derby/derby/10.17.1.0/derby-10.17.1.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=21.0.2+13-58
+user.dir=/Users/roman/Projects/DScope/CamelPersistence/camel-persistence-jdbc
+os.name=Mac OS X
+os.arch=aarch64
+os.version=26.5.1
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''

@@ -2,7 +2,7 @@
 
 `camel-persistence` is a modular persistence layer for Camel-style flow state, with pluggable backends.
 
-[![version](https://img.shields.io/badge/version-1.3.0-brightgreen)](https://github.com/dscope-io/dscope-camel-persistence/releases/tag/v1.3.0)
+[![version](https://img.shields.io/badge/version-1.3.1-brightgreen)](https://github.com/dscope-io/dscope-camel-persistence/releases/tag/v1.3.1)
 [![license](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
 [![java](https://img.shields.io/badge/java-21-orange)](https://openjdk.org/)
 
@@ -34,9 +34,9 @@
 
 ## Version
 
-Current stable release: `1.3.0`
+Current stable release: `1.3.1`
 
-Canonical root artifact (parent POM): `io.dscope.camel:camel-persistence:1.3.0`
+Canonical root artifact (parent POM): `io.dscope.camel:camel-persistence:1.3.1`
 
 Canonical Maven package URL (PURL): `pkg:maven/io.dscope.camel/camel-persistence`
 
@@ -76,13 +76,13 @@ Use `core` plus one backend module (`jdbc`, `redis`, or `ic4j`).
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-core</artifactId>
-  <version>1.3.0</version>
+  <version>1.3.1</version>
 </dependency>
 
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-jdbc</artifactId>
-  <version>1.3.0</version>
+  <version>1.3.1</version>
 </dependency>
 ```
 
@@ -92,13 +92,13 @@ Use `core` plus one backend module (`jdbc`, `redis`, or `ic4j`).
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-core</artifactId>
-  <version>1.3.0</version>
+  <version>1.3.1</version>
 </dependency>
 
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-redis</artifactId>
-  <version>1.3.0</version>
+  <version>1.3.1</version>
 </dependency>
 ```
 
@@ -108,13 +108,13 @@ Use `core` plus one backend module (`jdbc`, `redis`, or `ic4j`).
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-core</artifactId>
-  <version>1.3.0</version>
+  <version>1.3.1</version>
 </dependency>
 
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-ic4j</artifactId>
-  <version>1.3.0</version>
+  <version>1.3.1</version>
 </dependency>
 ```
 
@@ -124,8 +124,8 @@ For Redis cache plus IC4J durable persistence, include `camel-persistence-core`,
 
 ```groovy
 dependencies {
-  implementation 'io.dscope.camel:camel-persistence-core:1.3.0'
-  implementation 'io.dscope.camel:camel-persistence-jdbc:1.3.0'
+  implementation 'io.dscope.camel:camel-persistence-core:1.3.1'
+  implementation 'io.dscope.camel:camel-persistence-jdbc:1.3.1'
 }
 ```
 
@@ -133,8 +133,8 @@ For Redis backend:
 
 ```groovy
 dependencies {
-  implementation 'io.dscope.camel:camel-persistence-core:1.3.0'
-  implementation 'io.dscope.camel:camel-persistence-redis:1.3.0'
+  implementation 'io.dscope.camel:camel-persistence-core:1.3.1'
+  implementation 'io.dscope.camel:camel-persistence-redis:1.3.1'
 }
 ```
 
@@ -142,8 +142,8 @@ For IC4J / ICP backend:
 
 ```groovy
 dependencies {
-  implementation 'io.dscope.camel:camel-persistence-core:1.3.0'
-  implementation 'io.dscope.camel:camel-persistence-ic4j:1.3.0'
+  implementation 'io.dscope.camel:camel-persistence-core:1.3.1'
+  implementation 'io.dscope.camel:camel-persistence-ic4j:1.3.1'
 }
 ```
 
@@ -151,8 +151,8 @@ dependencies {
 
 ```kotlin
 dependencies {
-  implementation("io.dscope.camel:camel-persistence-core:1.3.0")
-  implementation("io.dscope.camel:camel-persistence-jdbc:1.3.0")
+  implementation("io.dscope.camel:camel-persistence-core:1.3.1")
+  implementation("io.dscope.camel:camel-persistence-jdbc:1.3.1")
 }
 ```
 
@@ -160,8 +160,8 @@ For Redis backend:
 
 ```kotlin
 dependencies {
-  implementation("io.dscope.camel:camel-persistence-core:1.3.0")
-  implementation("io.dscope.camel:camel-persistence-redis:1.3.0")
+  implementation("io.dscope.camel:camel-persistence-core:1.3.1")
+  implementation("io.dscope.camel:camel-persistence-redis:1.3.1")
 }
 ```
 
@@ -169,8 +169,8 @@ For IC4J / ICP backend:
 
 ```kotlin
 dependencies {
-  implementation("io.dscope.camel:camel-persistence-core:1.3.0")
-  implementation("io.dscope.camel:camel-persistence-ic4j:1.3.0")
+  implementation("io.dscope.camel:camel-persistence-core:1.3.1")
+  implementation("io.dscope.camel:camel-persistence-ic4j:1.3.1")
 }
 ```
 

@@ -30,7 +30,7 @@ Core APIs:
 
 Use `core` and one or more backend modules depending on scenario.
 
-For local development before a Central release is available, run `mvn clean test install` from this repository root. That verifies tests and installs the `1.3.0` artifacts into `~/.m2/repository/io/dscope/camel/...` for nearby projects to consume.
+For local development before a Central release is available, run `mvn clean test install` from this repository root. That verifies tests and installs the `1.3.1` artifacts into `~/.m2/repository/io/dscope/camel/...` for nearby projects to consume.
 
 ### JDBC-only
 
@@ -38,12 +38,12 @@ For local development before a Central release is available, run `mvn clean test
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-core</artifactId>
-  <version>1.3.0</version>
+  <version>1.3.1</version>
 </dependency>
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-jdbc</artifactId>
-  <version>1.3.0</version>
+  <version>1.3.1</version>
 </dependency>
 ```
 
@@ -53,12 +53,12 @@ For local development before a Central release is available, run `mvn clean test
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-core</artifactId>
-  <version>1.3.0</version>
+  <version>1.3.1</version>
 </dependency>
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-redis</artifactId>
-  <version>1.3.0</version>
+  <version>1.3.1</version>
 </dependency>
 ```
 
@@ -68,17 +68,17 @@ For local development before a Central release is available, run `mvn clean test
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-core</artifactId>
-  <version>1.3.0</version>
+  <version>1.3.1</version>
 </dependency>
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-redis</artifactId>
-  <version>1.3.0</version>
+  <version>1.3.1</version>
 </dependency>
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-jdbc</artifactId>
-  <version>1.3.0</version>
+  <version>1.3.1</version>
 </dependency>
 ```
 
@@ -88,17 +88,17 @@ For local development before a Central release is available, run `mvn clean test
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-core</artifactId>
-  <version>1.3.0</version>
+  <version>1.3.1</version>
 </dependency>
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-redis</artifactId>
-  <version>1.3.0</version>
+  <version>1.3.1</version>
 </dependency>
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-ic4j</artifactId>
-  <version>1.3.0</version>
+  <version>1.3.1</version>
 </dependency>
 ```
 
@@ -108,12 +108,12 @@ For local development before a Central release is available, run `mvn clean test
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-core</artifactId>
-  <version>1.3.0</version>
+  <version>1.3.1</version>
 </dependency>
 <dependency>
   <groupId>io.dscope.camel</groupId>
   <artifactId>camel-persistence-ic4j</artifactId>
-  <version>1.3.0</version>
+  <version>1.3.1</version>
 </dependency>
 ```
 

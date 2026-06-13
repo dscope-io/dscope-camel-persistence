@@ -40,6 +40,8 @@ public class JdbcFlowStateStore implements FlowStateStore {
     private static final String TABLE_SNAPSHOT = "camel_flow_snapshot";
     private static final String TABLE_EVENT = "camel_flow_event";
     private static final String TABLE_IDEMPOTENCY = "camel_flow_idempotency";
+    private static final String TABLE_CONTEXT = "camel_flow_conversation_context";
+    private static final String CONTEXT_EVENT_MARKER = "conversation.context";
     private static final String BUILTIN_SCHEMA_RESOURCE = "builtin";
     private static final Pattern STATEMENT_SEPARATOR = Pattern.compile(";\\s*(?:\\R|$)");
 
@@ -278,6 +280,55 @@ public class JdbcFlowStateStore implements FlowStateStore {
             insert.setString(8, event.idempotencyKey());
             insert.executeUpdate();
         }
+
+        if (isConversationContextEvent(event.eventType())) {
+            upsertConversationContext(connection, flowType, flowId, sequence, event);
+        }
+    }
+
+    private void upsertConversationContext(Connection connection, String flowType, String flowId, long sequence, PersistedEvent event)
+        throws SQLException {
+        String now = Instant.now().toString();
+        int updated;
+        try (PreparedStatement update = connection.prepareStatement(
+            "UPDATE " + TABLE_CONTEXT
+                + " SET sequence = ?, event_id = ?, context_json = ?, occurred_at = ?, session_id = ?, last_updated_at = ?"
+                + " WHERE flow_type = ? AND flow_id = ? AND context_type = ?"
+        )) {
+            update.setLong(1, sequence);
+            update.setString(2, event.eventId());
+            update.setString(3, event.payload() == null ? "{}" : event.payload().toString());
+            update.setString(4, event.occurredAt() == null ? now : event.occurredAt());
+            update.setString(5, event.idempotencyKey());
+            update.setString(6, now);
+            update.setString(7, flowType);
+            update.setString(8, flowId);
+            update.setString(9, event.eventType());
+            updated = update.executeUpdate();
+        }
+
+        if (updated == 0) {
+            try (PreparedStatement insert = connection.prepareStatement(
+                "INSERT INTO " + TABLE_CONTEXT
+                    + " (flow_type, flow_id, context_type, sequence, event_id, context_json, occurred_at, session_id, last_updated_at)"
+                    + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
+            )) {
+                insert.setString(1, flowType);
+                insert.setString(2, flowId);
+                insert.setString(3, event.eventType());
+                insert.setLong(4, sequence);
+                insert.setString(5, event.eventId());
+                insert.setString(6, event.payload() == null ? "{}" : event.payload().toString());
+                insert.setString(7, event.occurredAt() == null ? now : event.occurredAt());
+                insert.setString(8, event.idempotencyKey());
+                insert.setString(9, now);
+                insert.executeUpdate();
+            }
+        }
+    }
+
+    private boolean isConversationContextEvent(String eventType) {
+        return eventType != null && eventType.contains(CONTEXT_EVENT_MARKER);
     }
 
     private void insertIdempotency(Connection connection, String flowType, String flowId, String idempotencyKey, long appliedVersion)
@@ -333,6 +384,20 @@ public class JdbcFlowStateStore implements FlowStateStore {
                     + "idempotency_key VARCHAR(256) NOT NULL, "
                     + "applied_version BIGINT NOT NULL, "
                     + "PRIMARY KEY (flow_type, flow_id, idempotency_key))"
+            );
+
+            createTableIfMissing(statement,
+                "CREATE TABLE " + TABLE_CONTEXT + " ("
+                    + "flow_type VARCHAR(128) NOT NULL, "
+                    + "flow_id VARCHAR(256) NOT NULL, "
+                    + "context_type VARCHAR(128) NOT NULL, "
+                    + "sequence BIGINT NOT NULL, "
+                    + "event_id VARCHAR(128) NOT NULL, "
+                    + "context_json CLOB NOT NULL, "
+                    + "occurred_at VARCHAR(64) NOT NULL, "
+                    + "session_id VARCHAR(256), "
+                    + "last_updated_at VARCHAR(64) NOT NULL, "
+                    + "PRIMARY KEY (flow_type, flow_id, context_type))"
             );
         } catch (Exception e) {
             throw new BackendUnavailableException("Failed to initialize JDBC persistence schema", e);

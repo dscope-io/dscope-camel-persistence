@@ -24,3 +24,4 @@ camel-persistence-redis/target/
 camel-persistence-core/target/
 camel-persistence-ic4j/target/
 camel-persistence-test/target/
+camel-persistence-jdbc/derby.log

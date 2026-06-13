@@ -22,6 +22,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.dscope.camel.persistence.core.AppendResult;
 import io.dscope.camel.persistence.core.PersistedEvent;
 import io.dscope.camel.persistence.core.RehydratedState;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import io.dscope.camel.persistence.core.exception.OptimisticConflictException;
 import java.time.Instant;
 import java.util.List;
@@ -85,6 +89,53 @@ class JdbcFlowStateStoreDerbyTest {
             OptimisticConflictException.class,
             () -> store.appendEvents("a2a.task", "t3", 0L, List.of(running), "cmd-b")
         );
+    }
+
+    @Test
+    void projectsLatestConversationContextIntoGenericTable() throws Exception {
+        String dbName = "camelPersistenceContext" + UUID.randomUUID().toString().replace("-", "");
+        String jdbcUrl = "jdbc:derby:memory:" + dbName + ";create=true";
+        JdbcFlowStateStore store = new JdbcFlowStateStore(jdbcUrl, "", "");
+
+        PersistedEvent firstContext = new PersistedEvent(
+            UUID.randomUUID().toString(),
+            "agent.conversation",
+            "conv-1",
+            0,
+            "crm.conversation.context",
+            mapper.valueToTree(Map.of("EMAIL", "first@example.test")),
+            Instant.now().toString(),
+            "session-a"
+        );
+
+        PersistedEvent secondContext = new PersistedEvent(
+            UUID.randomUUID().toString(),
+            "agent.conversation",
+            "conv-1",
+            0,
+            "crm.conversation.context",
+            mapper.valueToTree(Map.of("EMAIL", "second@example.test")),
+            Instant.now().toString(),
+            "session-b"
+        );
+
+        store.appendEvents("agent.conversation", "conv-1", 0L, List.of(firstContext), "cmd-ctx-1");
+        store.appendEvents("agent.conversation", "conv-1", 1L, List.of(secondContext), "cmd-ctx-2");
+
+        try (Connection connection = DriverManager.getConnection(jdbcUrl);
+             Statement statement = connection.createStatement();
+             ResultSet rs = statement.executeQuery(
+                 "SELECT sequence, event_id, session_id, context_json "
+                     + "FROM camel_flow_conversation_context "
+                     + "WHERE flow_type='agent.conversation' AND flow_id='conv-1' AND context_type='crm.conversation.context'"
+             )) {
+            assertTrue(rs.next());
+            assertEquals(2L, rs.getLong(1));
+            assertEquals(secondContext.eventId(), rs.getString(2));
+            assertEquals("session-b", rs.getString(3));
+            assertTrue(rs.getString(4).contains("second@example.test"));
+            assertFalse(rs.next());
+        }
     }
 
     private JdbcFlowStateStore newStore() {

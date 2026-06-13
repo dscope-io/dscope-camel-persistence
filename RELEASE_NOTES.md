@@ -7,6 +7,23 @@
 - Added a developer command quick-reference section in `README.md`.
 - Updated third-party integration docs to recommend test-verified local install flow before consuming local artifacts.
 
+## v1.3.1 (2026-06-13)
+
+### Highlights
+- Updated release version from `1.3.0` to `1.3.1` across root and module POMs.
+- Updated consumer dependency examples in `README.md` and integration docs to `1.3.1`.
+
+### Modules in this release
+- `io.dscope.camel:camel-persistence:1.3.1` (parent POM)
+- `io.dscope.camel:camel-persistence-core:1.3.1`
+- `io.dscope.camel:camel-persistence-testkit:1.3.1`
+- `io.dscope.camel:camel-persistence-redis:1.3.1`
+- `io.dscope.camel:camel-persistence-jdbc:1.3.1`
+- `io.dscope.camel:camel-persistence-ic4j:1.3.1`
+
+### Validation
+- Local Maven install pending.
+
 ## v1.3.0 (2026-05-03)
 
 ### Highlights
