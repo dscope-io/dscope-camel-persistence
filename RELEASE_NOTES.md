@@ -22,7 +22,8 @@
 - `io.dscope.camel:camel-persistence-ic4j:1.3.1`
 
 ### Validation
-- Local Maven install pending.
+- Reactor clean test and local Maven install completed successfully with `mvn clean test install`.
+- Redis contract tests were skipped because Redis was not reachable at `redis://localhost:6379`.
 
 ## v1.3.0 (2026-05-03)
 
